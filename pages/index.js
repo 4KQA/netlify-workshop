@@ -3,8 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { CarouselContainer } from "../components/Carousel";
+import { useState } from "react";
+import Cookies from "js-cookie";
 
-export default function Home() {
+export default function Home({ header }) {
+  const [headerText, setHeaderText] = useState(header);
+  const [avatarColor, setAvatarColor] = useState("");
+
+  const handleSavePreferences = (e) => {
+    Cookies.set("personalGreeting", headerText);
+    Cookies.set("avatar", avatarColor);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,68 +23,82 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Avatar</h1>
-      {/* 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <h1 id="header">{header}</h1>
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <p>current header: {headerText}</p>
+      <p>current avartar color: {avatarColor}</p>
 
-        <div className={styles.grid}>
-          <Link href={"/"} className={styles.card}>
-            NEXT Link
-          </Link>
-
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      <div>
+        <form>
+          <input
+            type="text"
+            id="headerText"
+            onChange={(e) => setHeaderText(e.target.value)}
+          />
+          <div>
+            <input
+              type="radio"
+              name="avatar"
+              id="color1"
+              value="aquamarine"
+              onChange={(e) => setAvatarColor(e.target.value)}
+            />
+            <label htmlFor="color1">aquamarine</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="avatar"
+              id="color2"
+              value="firebrick"
+              onChange={(e) => setAvatarColor(e.target.value)}
+            />
+            <label htmlFor="color2">firebrick</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="avatar"
+              id="color3"
+              value="cornsilk"
+              onChange={(e) => setAvatarColor(e.target.value)}
+            />
+            <label htmlFor="color3">cornsilk</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="avatar"
+              id="color4"
+              value="lavender"
+              onChange={(e) => setAvatarColor(e.target.value)}
+            />
+            <label htmlFor="color4">lavender</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="avatar"
+              id="color5"
+              value="tomato"
+              onChange={(e) => setAvatarColor(e.target.value)}
+            />
+            <label htmlFor="color5">tomato</label>
+          </div>
+        </form>
+        <button type="submit" onClick={handleSavePreferences}>
+          Set preferences
+        </button>
+      </div>
       <CarouselContainer />
     </div>
   );
 }
+
+export const getStaticProps = (context) => {
+  return {
+    props: {
+      header: "default from getStaticProps",
+    },
+  };
+};
