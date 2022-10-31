@@ -3,16 +3,43 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { CarouselContainer } from "../components/Carousel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 export default function Home({ header }) {
   const [headerText, setHeaderText] = useState(header);
-  const [avatarColor, setAvatarColor] = useState("");
+  const [colorScheme, setColorScheme] = useState("");
+  const [avatar, setAvatar] = useState({
+    avatar: {
+      name: "",
+      img: "",
+    },
+    user: {
+      name: "",
+    },
+    preferences: {
+      colorScheme: "",
+    },
+  });
+
+  useEffect(() => {
+    Cookies.set("avatar", JSON.stringify(avatar));
+  }, [avatar]);
 
   const handleSavePreferences = (e) => {
-    Cookies.set("personalGreeting", headerText);
-    Cookies.set("avatar", avatarColor);
+    setAvatar((v) => {
+      return {
+        ...v,
+        user: {
+          ...v.user,
+          name: headerText,
+        },
+        preferences: {
+          ...v.preferences,
+          colorScheme,
+        },
+      };
+    });
   };
 
   return (
@@ -26,7 +53,7 @@ export default function Home({ header }) {
       <h1 id="header">{header}</h1>
 
       <p>current header: {headerText}</p>
-      <p>current avartar color: {avatarColor}</p>
+      <p>current avartar color: {colorScheme}</p>
 
       <div>
         <form>
@@ -41,7 +68,7 @@ export default function Home({ header }) {
               name="avatar"
               id="color1"
               value="aquamarine"
-              onChange={(e) => setAvatarColor(e.target.value)}
+              onChange={(e) => setColorScheme(e.target.value)}
             />
             <label htmlFor="color1">aquamarine</label>
           </div>
@@ -51,7 +78,7 @@ export default function Home({ header }) {
               name="avatar"
               id="color2"
               value="firebrick"
-              onChange={(e) => setAvatarColor(e.target.value)}
+              onChange={(e) => setColorScheme(e.target.value)}
             />
             <label htmlFor="color2">firebrick</label>
           </div>
@@ -61,7 +88,7 @@ export default function Home({ header }) {
               name="avatar"
               id="color3"
               value="cornsilk"
-              onChange={(e) => setAvatarColor(e.target.value)}
+              onChange={(e) => setColorScheme(e.target.value)}
             />
             <label htmlFor="color3">cornsilk</label>
           </div>
@@ -71,7 +98,7 @@ export default function Home({ header }) {
               name="avatar"
               id="color4"
               value="lavender"
-              onChange={(e) => setAvatarColor(e.target.value)}
+              onChange={(e) => setColorScheme(e.target.value)}
             />
             <label htmlFor="color4">lavender</label>
           </div>
@@ -81,16 +108,16 @@ export default function Home({ header }) {
               name="avatar"
               id="color5"
               value="tomato"
-              onChange={(e) => setAvatarColor(e.target.value)}
+              onChange={(e) => setColorScheme(e.target.value)}
             />
             <label htmlFor="color5">tomato</label>
           </div>
         </form>
-        <button type="submit" onClick={handleSavePreferences}>
+        <button type="button" onClick={handleSavePreferences}>
           Set preferences
         </button>
       </div>
-      <CarouselContainer />
+      {/* <CarouselContainer /> */}
     </div>
   );
 }
