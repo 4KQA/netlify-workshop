@@ -20,12 +20,13 @@ export async function middleware(nextRequest) {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
               },
         })
-        
+
         const weatherInfo = await res.json();
         
         const seasonProducts = products.filter(product => product.maxTemp >= weatherInfo.temp && product.minTemp <= weatherInfo.temp)
 
         response.setPageProp("products", seasonProducts);
+        response.setPageProp("country", request.geo.country);
   }
 
   return response
