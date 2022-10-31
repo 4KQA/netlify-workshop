@@ -15,14 +15,14 @@ export function CarouselContainer() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const handleFetch = () => {
-      fetch(
-        "https://b41a37b4-2c62-48d7-a226-2c9c8db341ad.mock.pstmn.io/articlesTest55"
-      )
-        .then((response) => response.json())
-        .then((data) => setArticles(data));
-    };
-    handleFetch();
+    // const handleFetch = () => {
+    //   fetch(
+    //     "https://b41a37b4-2c62-48d7-a226-2c9c8db341ad.mock.pstmn.io/articlesTest55"
+    //   )
+    //     .then((response) => response.json())
+    //     .then((data) => setArticles(data));
+    // };
+    // handleFetch();
   }, []);
 
   return (
