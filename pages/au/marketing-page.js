@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Image from "next/image";
 import { Template } from "../../components/Template/Template";
 import styles from "../../styles/Home.module.css";
