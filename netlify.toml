@@ -4,6 +4,23 @@
   to = "/_next/:splat"
   status = 200
 
+# Go to a specific locale
+[[redirects]]
+  from = "/us/*"
+  to = "/us/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/in/*"
+  to = "/in/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/au/*"
+  to = "/au/:splat"
+  status = 200
+# - - - - - - - - - - - - - - - - - - - -
+
 # Wildcard
 [[redirects]]
   from = "/*"
@@ -18,7 +35,7 @@
   status = 302
   conditions = { Country = ["US"], }
 
-  [[redirects]]
+[[redirects]]
   from = "/*"
   to = "/in/:splat"
   status = 302
