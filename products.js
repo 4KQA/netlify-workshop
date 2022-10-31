@@ -2,15 +2,14 @@ export const products = [
     {
       name: "Jakke",
       image:
-        "https://pwa-frontend.sport24.dk/_next/image?url=https://img.sport24.dk/catalog/product/3/b/3b-cu9157_010_01.jpg&w=256&q=75",
+        "https://img01.ztat.net/article/spp-media-p1/4b8688ba3d6046f6be671eb55f404bd4/ad420fb13e9446bb8d1972cb82a311db.jpg?imwidth=1800&filter=packshot",
       price: "Kr. 700,00",
       minTemp: -20,
       maxTemp: 15
     },
     {
       name: "Flyverdragt",
-      image:
-        "https://pwa-frontend.sport24.dk/_next/image?url=https://img.sport24.dk/catalog/product/4/1/414-z213005_4241_01.jpg&w=256&q=75",
+      image: "https://img01.ztat.net/article/spp-media-p1/0688a81ffb834aa781f8e0ec0e1f0e30/0f693bb1f7e84d2b93fb4baa63895fe5.jpg?imwidth=1800",
       price: "Kr. 500,00",
       minTemp: -10,
       maxTemp: 10
