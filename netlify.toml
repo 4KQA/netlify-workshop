@@ -18,6 +18,12 @@
   status = 302
   conditions = { Country = ["US"], }
 
+  [[redirects]]
+  from = "/*"
+  to = "/in/:splat"
+  status = 302
+  conditions = { Country = ["IN"], }
+
 # Go to a direct file
 [[redirects]]
   from = "/marketing-page"

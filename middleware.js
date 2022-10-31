@@ -27,6 +27,7 @@ export async function middleware(nextRequest) {
 
         response.setPageProp("products", seasonProducts);
         response.setPageProp("country", request.geo.country);
+        console.log(request.geo.country)
   }
   return response
 }
