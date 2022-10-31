@@ -15,6 +15,7 @@ export async function middleware(NextRequest) {
         return avatar.user.name;
       });
       response.setPageProp("header", avatar.user.name);
+      response.setPageProp("colorScheme", avatar.preferences.colorScheme);
     }
   }
 
