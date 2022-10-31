@@ -77,11 +77,14 @@ export default function Home({ header, ...props }) {
       {!cookiesconsent && (
         <div id="cookie-banner">
           <form>
-            <input
-              type="text"
-              id="headerText"
-              onChange={(e) => setHeaderText(e.target.value)}
-            />
+            <div>
+              <label htmlFor="headerText">Name: </label>
+              <input
+                type="text"
+                id="headerText"
+                onChange={(e) => setHeaderText(e.target.value)}
+              />
+            </div>
             <div>
               <input
                 type="radio"
