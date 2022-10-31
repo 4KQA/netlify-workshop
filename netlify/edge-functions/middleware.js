@@ -1,5 +1,5 @@
 import { MiddlewareRequest } from "@netlify/next";
-import { products } from "./products";
+import { products } from "../../products";
 
 export async function middleware(nextRequest) {
     

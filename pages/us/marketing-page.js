@@ -17,6 +17,7 @@ export default function Home(props) {
         <Image src={background} alt="language background" fill style={{
               objectFit: "cover",
             }}/>
+            
       </Template>
     </div>
   );
