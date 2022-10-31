@@ -70,7 +70,7 @@ const Article = ({ article }) => {
         </p>
         <p
           style={{
-            color: "black",
+            color: "black", 
           }}
         >
           {article.subtitle}
@@ -83,7 +83,7 @@ const Article = ({ article }) => {
             right: "15px",
             width: "30px",
             height: "30px",
-            backgroundColor: "transparent",
+            backgroundColor: article.color,
             padding: "0",
             fontSize: "inital",
             border: "none",
