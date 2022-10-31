@@ -5,9 +5,10 @@ export async function middleware(NextRequest) {
   const response = await request.next();
 
   if (NextRequest.nextUrl.pathname === "/") {
-    const avatar = JSON.parse(
-      decodeURIComponent(request.context.cookies.get("avatar"))
-    );
+    const cookie = request.context.cookies.get("avatar");
+    const avatar =
+      cookie &&
+      JSON.parse(decodeURIComponent(request.context.cookies.get("avatar")));
 
     if (avatar) {
       response.replaceText("#header", (prop) => {
