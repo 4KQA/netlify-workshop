@@ -3,6 +3,7 @@ import { Template } from "../../components/Template/Template";
 import styles from "../../styles/Home.module.css";
 import background from "../../public/images/us-bg.jpeg";
 import { useEffect } from "react";
+import Hero from "../../components/Hero/Hero";
 
 export default function Home(props) {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function Home(props) {
         <Image src={background} alt="language background" fill style={{
               objectFit: "cover",
             }}/>
-            
+            <Hero />
       </Template>
     </div>
   );

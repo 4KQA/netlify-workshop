@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import CardComponent from '../Card/CardComponent';
 import CardGroup from 'react-bootstrap/CardGroup';
-
+import { products } from '../../products';
 export default function Hero() {
   return (
     <>
@@ -20,10 +20,13 @@ export default function Hero() {
 
             </div>
         <CardGroup>
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
+        {
+          products.map( (product, index) => {
+            return (
+              <CardComponent key={index} product={product} />
+            )
+          })
+        }
         </CardGroup>
           </div>
         </div>
