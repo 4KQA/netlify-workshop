@@ -1,49 +1,45 @@
-
-[[redirects]]
-  from = "/_next/*"
-  to = "/_next/:splat"
-  status = 200
-
-# Go to a specific locale
-[[redirects]]
-  from = "/us/*"
-  to = "/us/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/in/*"
-  to = "/in/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/au/*"
-  to = "/au/:splat"
-  status = 200
-# - - - - - - - - - - - - - - - - - - - -
-
-# Wildcard
-[[redirects]]
-  from = "/*"
-  to = "/au/:splat"
-  status = 302
-  conditions = { Country = ["AU"], }
-
-# Wildcard
-[[redirects]]
-  from = "/*"
-  to = "/us/:splat"
-  status = 302
-  conditions = { Country = ["US"], }
-
-[[redirects]]
-  from = "/*"
-  to = "/in/:splat"
-  status = 302
-  conditions = { Country = ["IN"], }
-
 # Go to a direct file
 [[redirects]]
   from = "/marketing-page"
-  to = "/marketing-page-dk"
+  to = "/au/marketing-page"
+  status = 302
+  conditions = { Country = ["AU"], }
+
+[[redirects]]
+  from = "/marketing-page"
+  to = "/dk/marketing-page"
   status = 302
   conditions = { Country = ["DK"], }
+
+[[redirects]]
+  from = "/marketing-page"
+  to = "/in/marketing-page"
+  status = 302
+  conditions = { Country = ["IN"], }
+
+[[redirects]]
+  from = "/marketing-page"
+  to = "/us/marketing-page"
+  status = 302
+  conditions = { Country = ["US"], }
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Wildcard
+#
+# [[redirects]]
+#   from = "/_next/*"
+#   to = "/_next/:splat"
+#   status = 200
+
+# [[redirects]]
+#   from = "/us/*"
+#   to = "/us/:splat"
+#   status = 200
+
+# [[redirects]]
+#   from = "/*"
+#   to = "/au/:splat"
+#   status = 302
+#   conditions = { Country = ["AU"], }
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
