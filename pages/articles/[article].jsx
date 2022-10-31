@@ -4,10 +4,39 @@ import PropTypes from "prop-types";
 import { FavoriteEmptyIcon } from "../../assets/icons/FavoriteEmpty";
 import { FavoriteFilledIcon } from "../../assets/icons/FavoriteFilled";
 
+// utils/contentful
+const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
+const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+
+export async function fetchContent(query) {
+  // add a try / catch loop for nicer error handling
+  try {
+    const res = await fetch(
+      `https://graphql.contentful.com/content/v1/spaces/${space}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${accessToken}`,
+        },
+        // throw our query (a string) into the body directly
+        body: JSON.stringify({ query }),
+      }
+    );
+    const { data } = await res.json();
+    return data;
+  } catch (error) {
+    // add a descriptive error message first,
+    // so we know which GraphQL query caused the issue
+    console.error(
+      `There was a problem retrieving entries with the query ${query}`
+    );
+    console.error(error);
+  }
+}
+
 export const getStaticPaths = async () => {
-  const res = await fetch(
-    "https://b41a37b4-2c62-48d7-a226-2c9c8db341ad.mock.pstmn.io/articlesTest55"
-  );
+  const res = await fetch("https://api.npoint.io/5e62657c91bdf48206a9");
   const articles = await res.json();
   const paths = articles.map((article) => {
     return { params: { article: article.slug.toString() } };
@@ -20,15 +49,32 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const res = await fetch(
-    "https://b41a37b4-2c62-48d7-a226-2c9c8db341ad.mock.pstmn.io/articlesTest55/"
-  );
+  const response = await fetchContent(`
+    {
+      heroCollection {
+        items {
+          headline
+          image{url}
+        }
+      }
+    }
+    `);
+
+  const res = await fetch("https://api.npoint.io/5e62657c91bdf48206a9");
   const articles = await res.json();
   const article = articles.find((i) => (params.article === i.slug ? i : null));
-  return { props: { article } };
+
+  return {
+    props: {
+      article,
+      heros: response.heroCollection.items,
+    },
+  };
 };
 
-const Article = ({ article }) => {
+const Article = ({ article, heros }) => {
+  console.log(heros);
+
   // Move personalisation logic to its own component
   const [isFavorite, setIsFavorite] = useState(false);
   const toggleFavorite = () => {
@@ -40,8 +86,8 @@ const Article = ({ article }) => {
       style={{
         width: "100vw",
         height: "100vh",
-        backgroundColor: article.color,
         display: "flex",
+        backgroundColor: article.color,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
@@ -65,12 +111,13 @@ const Article = ({ article }) => {
           style={{
             color: "black",
           }}
-        >
-          {article.title}
-        </p>
+        ></p>
+
+        <h2>{heros[0].headline}</h2>
+
         <p
           style={{
-            color: "black", 
+            color: "black",
           }}
         >
           {article.subtitle}

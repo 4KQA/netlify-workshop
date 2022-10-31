@@ -1,0 +1,37 @@
+[
+    {
+        "color": "purple",
+        "title": "Purple",
+        "subtitle": "This is a color",
+        "minutesLong": "5min",
+        "slug": "purple"
+    },
+    {
+        "color": "red",
+        "title": "Red",
+        "subtitle": "This is a nice color",
+        "minutesLong": "3min",
+        "slug": "red"
+    },
+    {
+        "color": "yellow",
+        "title": "Yellow",
+        "subtitle": "This is a great color",
+        "minutesLong": "30min",
+        "slug": "yellow"
+    },
+    {
+        "color": "tomato",
+        "title": "Tomato",
+        "subtitle": "This is an ok color",
+        "minutesLong": "13min",
+        "slug": "tomato"
+    },
+    {
+        "color": "green",
+        "title": "Green",
+        "subtitle": "This is an ugly color",
+        "minutesLong": "15min",
+        "slug": "green"
+    }
+]
