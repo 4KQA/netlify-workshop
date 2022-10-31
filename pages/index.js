@@ -43,10 +43,10 @@ export default function Home({ header, ...props }) {
   };
 
   const color =
-    props.colorScheme === "white" ||
-    props.colorScheme === "lavender" ||
-    props.colorScheme === "cornsilk" ||
-    props.colorScheme === "aquamarine"
+    colorScheme === "white" ||
+    colorScheme === "lavender" ||
+    colorScheme === "cornsilk" ||
+    colorScheme === "aquamarine"
       ? "black"
       : "white";
 
