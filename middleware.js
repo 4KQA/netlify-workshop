@@ -16,6 +16,12 @@ export async function middleware(NextRequest) {
       });
       response.setPageProp("header", avatar.user.name);
       response.setPageProp("colorScheme", avatar.preferences.colorScheme);
+      response.setPageProp("consent", true);
+      response.rewriteHTML("#cookie-banner", {
+        element(e) {
+          e.remove();
+        },
+      });
     }
   }
 
