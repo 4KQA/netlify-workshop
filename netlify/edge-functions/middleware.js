@@ -5,14 +5,12 @@ export async function middleware(nextRequest) {
     
   const request = new MiddlewareRequest(nextRequest);
   const response = await request.next();
-  const countryCode = request.geo.country;
   
   if (nextRequest.nextUrl.pathname.indexOf("/marketing-page") !== -1) {
-      const countryCode = request.geo.country;
-      console.log(request, 'request.geo');
+      const city = request.geo.city;
 
-      const res = await fetch('https://api.api-ninjas.com/v1/holidays?' + new URLSearchParams({
-        country: countryCode || '',
+      const res = await fetch('https://api.api-ninjas.com/v1/weather?' + new URLSearchParams({
+        city: city || '',
         year: '2022',
         type: 'public_holiday',
         }), {
@@ -22,16 +20,13 @@ export async function middleware(nextRequest) {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
               },
         })
-      // use correct API.
-        const something = res.json().then(res => console.log(res, 'RES'))
 
-        const season = 'SUMMER';
+        const weatherInfo = await res.json();
         
-        const seasonProducts = products.filter(product => product.season === season)
-        console.log(products, 'prod');
-        console.log(seasonProducts, 'SEASON PRODUCTS')
+        const seasonProducts = products.filter(product => product.maxTemp >= weatherInfo.temp && product.minTemp <= weatherInfo.temp)
 
         response.setPageProp("products", seasonProducts);
+        response.setPageProp("country", request.geo.country);
   }
 
   return response

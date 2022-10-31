@@ -5,10 +5,10 @@ import background from "../public/images/dk-bg.jpeg";
 import { useEffect } from "react";
 import Hero from "../components/Hero/Hero";
 
-export default function Home({products}) {
-  useEffect(() => {
-    console.log(products, 'products')
-  }, [])
+export default function Home({products, country}) {
+  // useEffect(() => {country
+  //   console.log(product, 'products')
+  // }, [])
 
   return (
     <div className={styles.container}>

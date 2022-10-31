@@ -1,3 +1,0 @@
-export {
-  CarouselContainer,
-} from "./Carousel"
