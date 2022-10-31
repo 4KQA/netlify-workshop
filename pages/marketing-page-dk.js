@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Template } from "../../components/Template/Template";
-import styles from "../../styles/Home.module.css";
-import background from "../../public/images/dk-bg.jpeg";
+import { Template } from "../components/Template/Template";
+import styles from "../styles/Home.module.css";
+import background from "../public/images/dk-bg.jpeg";
 
 export default function Home() {
   return (
