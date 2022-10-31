@@ -34,8 +34,5 @@ export async function middleware(nextRequest) {
         response.setPageProp("products", seasonProducts);
   }
 
-//   const countryCodeFetch = await fetch(`https://api.api-ninjas.com/v1/holidays?country=
-//   ${(countryCode || '').trim()}&year=${new Date().getFullYear()}&type=public_holiday`);
-
-//   console.log(countryCodeFetch, 'countryCodeFetch');
+  return response
 }

@@ -6,8 +6,10 @@ import { useEffect } from "react";
 
 export default function Home(props) {
   useEffect(() => {
-    console.log(props, 'products')
+    console.log(props, 'dsfd')
   }, [props])
+
+  console.log(props, 'props')
 
   return (
     <div className={styles.container}>
