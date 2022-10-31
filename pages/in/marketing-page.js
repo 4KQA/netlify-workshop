@@ -2,7 +2,7 @@ import React from 'react';
 import Image from "next/image";
 import { Template } from "../../components/Template/Template";
 import styles from "../../styles/Home.module.css";
-import background from "../../public/images/us-bg.jpeg";
+import background from "../../public/images/in-bg.jpeg";
 import { useEffect } from "react";
 import Hero from "../../components/Hero/Hero";
 
@@ -13,7 +13,7 @@ export default function Home({products}) {
   }, []);
   if(!hydrated) {
     return null;
-  } 
+  }
 
 
   return (
