@@ -78,7 +78,7 @@ export default function Home({ header, ...props }) {
         <div id="cookie-banner">
           <form>
             <div>
-              <label htmlFor="headerText">Name: </label>
+              <label htmlFor="headerText">Greeting: </label>
               <input
                 type="text"
                 id="headerText"
@@ -148,7 +148,7 @@ export default function Home({ header, ...props }) {
 export const getStaticProps = (context) => {
   return {
     props: {
-      header: "default from getStaticProps",
+      header: "default greeting",
       colorScheme: "white",
     },
   };
