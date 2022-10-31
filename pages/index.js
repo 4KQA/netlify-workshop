@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
-import { CarouselContainer } from "../components/Carousel";
+  import styles from "../styles/Home.module.css";
+  import { CarouselContainer } from "../components/Carousel";
 
-export default function Home() {
-  return (
+  export default function Home() {
+    return (
     <div className={styles.container}>
       {/* <Head>
         <title>Create Next App</title>
@@ -75,4 +75,12 @@ export default function Home() {
       <CarouselContainer />
     </div>
   );
+}
+
+
+export const getStaticProps = async () => {
+return {
+props: {
+},
+};
 }

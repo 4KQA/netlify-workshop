@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion-carousel": "^2.0.1",
+    "netlify-cli": "^12.0.11",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
