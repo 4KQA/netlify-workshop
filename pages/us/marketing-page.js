@@ -5,12 +5,9 @@ import background from "../../public/images/us-bg.jpeg";
 import { useEffect } from "react";
 import Hero from "../../components/Hero/Hero";
 
-export default function Home(props) {
-  useEffect(() => {
-    console.log(props, 'dsfd')
-  }, [props])
+export default function Home({products}) {
+  
 
-  console.log(props, 'props')
 
   return (
     <div className={styles.container}>
@@ -18,7 +15,7 @@ export default function Home(props) {
         <Image src={background} alt="language background" fill style={{
               objectFit: "cover",
             }}/>
-            <Hero />
+            <Hero products={products}/>
       </Template>
     </div>
   );

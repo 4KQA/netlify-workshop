@@ -5,14 +5,15 @@ import styles from "../../styles/Home.module.css";
 import background from "../../public/images/au-bg.jpeg";
 import Hero from "../../components/Hero/Hero";
 
-export default function Home() {
+export default function Home({products}) {
+
   return (
     <div className={styles.container}>
       <Template>
         <Image src={background} alt="language background" fill style={{
           objectFit: "cover",
         }}/>
-      <Hero />
+      <Hero products={products} />
       </Template>
     </div>
   );

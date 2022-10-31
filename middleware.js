@@ -1,5 +1,5 @@
 import { MiddlewareRequest } from "@netlify/next";
-import { products } from "../../products";
+import { products } from "./products";
 
 export async function middleware(nextRequest) {
     
@@ -28,6 +28,5 @@ export async function middleware(nextRequest) {
         response.setPageProp("products", seasonProducts);
         response.setPageProp("country", request.geo.country);
   }
-
   return response
 }

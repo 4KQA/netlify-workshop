@@ -3,7 +3,8 @@ import { Button } from 'react-bootstrap';
 import CardComponent from '../Card/CardComponent';
 import CardGroup from 'react-bootstrap/CardGroup';
 import { products } from '../../products';
-export default function Hero() {
+export default function Hero({products}) {
+
   return (
     <>
     <header style={{ paddingLeft: 0 }}>
@@ -21,7 +22,7 @@ export default function Hero() {
             </div>
         <CardGroup>
         {
-          products.map( (product, index) => {
+          products?.map( (product, index) => {
             return (
               <CardComponent key={index} product={product} />
             )

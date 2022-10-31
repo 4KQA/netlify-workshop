@@ -16,7 +16,7 @@ export default function Home({products, country}) {
         <Image src={background} alt="language background" fill style={{
           objectFit: "cover",
         }}/>
-        <Hero />
+        <Hero products={products} />
       </Template>
     </div>
   );

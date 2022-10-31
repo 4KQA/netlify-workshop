@@ -2,10 +2,11 @@
 
 import Hero from "../components/Hero/Hero";
 
-  export default function Home() {
+  export default function Home({products}) {
+    
     return (
       <>
-      <Hero />
+      <Hero products={products} />
       </>
   );
 }
