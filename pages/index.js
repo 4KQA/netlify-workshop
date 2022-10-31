@@ -131,7 +131,6 @@ export default function Home({ header, ...props }) {
           Set preferences
         </button>
       </div>
-      {/* <CarouselContainer /> */}
     </div>
   );
 }
