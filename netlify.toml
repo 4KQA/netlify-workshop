@@ -1,3 +1,21 @@
 [[edge_functions]]
 path = "/test"
 function = "hello"
+
+[[redirects]]
+  from = "/marketing-page"
+  to = "/us/marketing-page"
+  status = 302
+  conditions = { Country = ["US"], }
+
+[[redirects]]
+  from = "/marketing-page"
+  to = "/dk/marketing-page"
+  status = 302
+  conditions = { Country = ["DK"], }
+
+[[redirects]]
+  from = "/marketing-page"
+  to = "/au/marketing-page"
+  status = 302
+  conditions = { Country = ["AU"], }
