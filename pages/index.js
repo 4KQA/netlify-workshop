@@ -1,11 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { CarouselContainer } from "../components/Carousel";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import CookieBanner from "../pages/CookiesBanner";
 
 export default function Home({ header, ...props }) {
   const [headerText, setHeaderText] = useState(header);
@@ -46,10 +42,10 @@ export default function Home({ header, ...props }) {
   };
 
   const color =
-    props.colorScheme === "white" ||
-    props.colorScheme === "lavender" ||
-    props.colorScheme === "cornsilk" ||
-    props.colorScheme === "aquamarine"
+    colorScheme === "white" ||
+    colorScheme === "lavender" ||
+    colorScheme === "cornsilk" ||
+    colorScheme === "aquamarine"
       ? "black"
       : "white";
 
